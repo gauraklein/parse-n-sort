@@ -19,7 +19,8 @@
     (is (thrown? java.lang.AssertionError (parse-file correct-output))))
 
   (testing "returns a message when no valid delimiter is found"
-    (is (= "Unable to find a valid delimiter, please check your file and try again" (parse-file ""))))
+    (is (= "Unable to find a valid delimiter, please check your file and try again"
+           (parse-file ""))))
 
   (testing "returns the correct output for properly formatted files"
     (is (= correct-output (parse-file pipe-str)))

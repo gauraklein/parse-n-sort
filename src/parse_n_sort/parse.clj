@@ -2,6 +2,7 @@
   (:require
    [clojure.string :as str]))
 
+;; TODO: Format Dates
 (defn parse-file
   "Takes a string and splits based on delimiter returns a vector"
   [file]
