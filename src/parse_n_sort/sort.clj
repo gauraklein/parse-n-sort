@@ -16,4 +16,4 @@
     (sort-by (juxt k1 k2) #(compare %2 %1) coll)
     (sort-by (juxt k1 k2) coll)))
 
-(sort-by-2-keys (parse-file (slurp "./resources/pipe.txt")) :color :email "descending")
+(sort-by-2-keys (parse-file (slurp "./resources/pipe.txt")) :color :email "ascending")

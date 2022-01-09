@@ -1,7 +1,11 @@
 (ns parse-n-sort.core
-  (:gen-class))
+  (:require
+   [parse-n-sort.cli-app :refer [format-file]]))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+  (let [path (first args)
+        output (second args)]
+    (println "parsing and sorting")
+    (format-file path output)))

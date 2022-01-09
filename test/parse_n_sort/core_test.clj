@@ -27,4 +27,8 @@
     (is (= correct-output (parse-file comma-str)))
     (is (= correct-output (parse-file space-str)))))
 
+;; sort
+
+;; TODO: write sorting tests
+
   (run-tests)
