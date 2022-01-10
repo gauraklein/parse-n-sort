@@ -1,22 +1,27 @@
 (ns parse-n-sort.parse
   (:require
-   [clojure.string :as str]))
+   [clojure.string :as str]
+   [parse-n-sort.utils :refer [format-date]]))
 
-;; TODO: Format Dates
-(defn parse-file
-  "Takes a string and splits based on delimiter returns a vector"
-  [file]
-  {:pre [(string? file)]}
+(defn parse-records
+  "Takes a string of records and splits based on delimiter returns a vector"
+  [records]
+  {:pre [(string? records)]}
   (let [delimiter  (some
-                    #(when (re-find % file) %)
+                    #(when (re-find % records) %)
                     [#" \| " #", " #" "])]
     (if
      delimiter
-      (->> file
+      (->> records
            (str/split-lines)
            (map #(str/split % delimiter))
            (map #(zipmap [:last-name :first-name :email :color :birth-date] %))
+           (map #(assoc % :birth-date (format-date (:birth-date %))))
            (vec))
       "Unable to find a valid delimiter, please check your file and try again")))
 
-;; (parse-file (slurp "./resources/pipe.txt"))
+(defn parse-args
+  "parses args passed by user"
+  [path output]
+  {:parsed-file (-> path (slurp) (parse-records))
+   :output-format  (Integer/parseInt output)})

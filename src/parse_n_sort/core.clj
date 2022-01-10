@@ -1,11 +1,11 @@
 (ns parse-n-sort.core
   (:require
-   [parse-n-sort.cli-app :refer [format-file]]))
+   [parse-n-sort.cli-app :refer [print-output]]))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Application to parse and sort records"
   [& args]
   (let [path (first args)
         output (second args)]
-    (println "parsing and sorting")
-    (format-file path output)))
+    (println "Sorting " path)
+    (print-output path output)))

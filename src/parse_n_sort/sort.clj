@@ -1,19 +1,25 @@
-(ns parse-n-sort.sort
-  (:require
-   [parse-n-sort.parse :refer [parse-file]]))
+(ns parse-n-sort.sort)
 
-(defn sort-by-1-key
-  "wrapper around sort-by for one val"
-  [coll k direction]
-  (if (= direction "descending")
-    (sort-by k #(compare %2 %1) coll)
-    (sort-by k coll)))
-
-(defn sort-by-2-keys
-  "wrapper around sort-by for two vals"
-  [coll k1 k2 direction]
-  (if (= direction "descending")
-    (sort-by (juxt k1 k2) #(compare %2 %1) coll)
-    (sort-by (juxt k1 k2) coll)))
-
-(sort-by-2-keys (parse-file (slurp "./resources/pipe.txt")) :color :email "ascending")
+;; TODO: add direction in here
+(defn sort-records
+  "takes a set of records and a desired output style then prints the output"
+  [records format]
+  {:pre [(vector? records) (or (int? format) (keyword? format))]}
+  (cond
+    (= format  1)
+    (do
+      (println "Sorting by 'color' and 'last name' ascending")
+      (sort-by (juxt :color :last-name) records))
+    (= format 2)
+    (do
+      (println "Sorting by 'birth date' ascending")
+      (sort-by :birth-date records))
+    (= format 3)
+    (do
+      (println "Sorting by 'last name' descending")
+      (sort-by :last-name #(compare %2 %1) records))
+    (keyword? format)
+    (do
+      (println (str "Sorting by " format " ascending"))
+    ;; could add (when "descedning" #(compare %2 %1)) 
+      (sort-by format records))))
