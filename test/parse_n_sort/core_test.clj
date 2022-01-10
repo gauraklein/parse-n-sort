@@ -4,6 +4,7 @@
             [parse-n-sort.sort :refer [sort-records]]
             [parse-n-sort.utils :refer [format-date]]))
 
+;; TODO: FIX TESTS TO HANDLE NEW DATE FORMAT
 ;; parse-records
 
 (def pipe-str "last-name-1 | first-name-1 | email-1 | color-1 | 2000-01-01\nlast-name-2 | first-name-2 | email-2 | color-2 | 2002-10-20")

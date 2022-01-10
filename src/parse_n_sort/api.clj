@@ -1,7 +1,8 @@
 (ns parse-n-sort.api
 (:require 
 [parse-n-sort.parse :refer [parse-records]]
-[parse-n-sort.sort :refer [sort-records]] )  )
+[parse-n-sort.sort :refer [sort-records]] 
+[parse-n-sort.utils :refer [format-date]] )  )
 
 ;; Should take records from all 3 files merge them together then sort
 ;; going to have to add a case to the sort function that sorts by classname
@@ -19,5 +20,7 @@
     (into [] (concat pipes commas spaces))))
 
 ;;TODO: refactor to take direction and add testing
-(defn get-records [sort-val] 
-  (sort-records (all-records) sort-val))
+(defn get-records [sort-val]
+  (let [sorted-records (sort-records (all-records) sort-val)
+        formatted-records   (map #(assoc % :birth-date (format-date (:birth-date %))) sorted-records)]
+    (vec formatted-records)))

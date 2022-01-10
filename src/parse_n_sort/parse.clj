@@ -1,7 +1,7 @@
 (ns parse-n-sort.parse
   (:require
    [clojure.string :as str]
-   [parse-n-sort.utils :refer [format-date]]))
+   [parse-n-sort.utils :refer [parse-date]]))
 
 (defn parse-records
   "Takes a string of records and splits based on delimiter returns a vector"
@@ -16,7 +16,7 @@
            (str/split-lines)
            (map #(str/split % delimiter))
            (map #(zipmap [:last-name :first-name :email :color :birth-date] %))
-           (map #(assoc % :birth-date (format-date (:birth-date %))))
+           (map #(assoc % :birth-date (parse-date (:birth-date %))))
            (vec))
       "Unable to find a valid delimiter, please check your file and try again")))
 

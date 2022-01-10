@@ -1,8 +1,9 @@
 (ns parse-n-sort.utils)
 
+(defn parse-date
+  [date]
+       (.parse (java.text.SimpleDateFormat. "yyyy-MM-dd") date))
+
 (defn format-date
   [date]
-  (->> date
-       (.parse (java.text.SimpleDateFormat. "yyyy-MM-dd"))
-       (.format (java.text.SimpleDateFormat. "M/d/yyyy"))))
-
+  (.format (java.text.SimpleDateFormat. "M/d/yyyy") date))
