@@ -1,6 +1,6 @@
 (ns parse-n-sort.sort)
 
-;; TODO: add direction in here
+;; TODO: add direction in here - separate out format code 
 (defn sort-records
   "takes a set of records and a desired output style then prints the output"
   [records format]
