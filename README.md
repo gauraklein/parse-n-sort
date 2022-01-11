@@ -48,6 +48,8 @@ at https://www.gnu.org/software/classpath/license.html.
 - upgrade the sorting function to take a direction as well
 - add a query param for sort direction to the get requests
 - add a get for the 'records' endpoint that takes a sort value as a query param
+- error handling for when a record already exists
+- decouple formatting code from sorting code
 
 --- TODO 
 - Add endpoint tests

@@ -5,7 +5,8 @@
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [http-kit "2.5.3"] 
                  [metosin/reitit "0.5.15"]
-                 [ring/ring-mock "0.4.0"]]
+                 [ring/ring-mock "0.4.0"]
+                 [org.clojure/data.json "2.4.0"]]
   :main ^:skip-aot parse-n-sort.core
   :target-path "target/%s"
   :aliases {"server" ["run" "-m" "parse-n-sort.server/start-server"]}
