@@ -1,10 +1,17 @@
 (ns parse-n-sort.routes
-(:require [parse-n-sort.api :refer [get-records]])  )
+  (:require
+   [schema.core :as s]
+   [parse-n-sort.api :refer [get-records post-record]]))
+
 
 (def routes
   [["/" {:get (fn [req]
                 {:status 200
                  :body "Hello Universe"})}]
+   ["/records"
+    {:post {:parameters {:body {:new-line s/Str}}
+          		:handler post-record}}]
+	
    ["/records/color" ;; returns records by color
     {:get (fn [req] {:status 200
                      :body (get-records :color)})}]
@@ -15,6 +22,4 @@
 
 
    ["/records/name" ;; returns records sorted by lastname
-    {:get (fn [req] {:status 200 :body (get-records :last-name)})}]
-
-   ["/records" {:post (fn [params] {:status 200 :body "adds a new record to appropriate file"})}]])
+    {:get (fn [req] {:status 200 :body (get-records :last-name)})}]])

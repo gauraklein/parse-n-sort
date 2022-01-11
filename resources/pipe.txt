@@ -8,3 +8,4 @@ Kemball | Cher | ckemballg@java.com | Orange | 1908-11-28
 Wadge | Cassandry | cwadgeh@nih.gov | Khaki | 1908-01-18
 Prentice | Isiahi | iprenticei@about.com | Green | 1958-01-02
 Sustins | Lynde | lsustinsj@ustream.tv | Mauve | 1919-08-05
+Klein | Gaura | foo@bar.com | Red | 1991-02-14

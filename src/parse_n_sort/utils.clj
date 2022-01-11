@@ -1,4 +1,19 @@
-(ns parse-n-sort.utils)
+(ns parse-n-sort.utils
+(:require 
+[clojure.string :as str] )  )
+
+;; TODO: testing and error handling
+(defn determine-file-path
+  "returns file path that string is using based on delimiter"
+  [string]
+  (cond
+    (str/includes? string "|")
+    "./resources/pipe.txt"
+    (str/includes? string ",")
+    "./resources/comma.csv"
+    (str/includes? string " ")
+    "./resources/space.txt"
+    :else nil))
 
 (defn parse-date
   [date]

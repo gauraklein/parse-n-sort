@@ -9,4 +9,5 @@
   :main ^:skip-aot parse-n-sort.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
-                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}
+             :dev {:source-paths ["src" "dev"]}})
