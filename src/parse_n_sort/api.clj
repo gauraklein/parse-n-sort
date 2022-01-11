@@ -19,7 +19,7 @@
 (defn get-records [sort-val]
   (let [sorted-records (sort-records (all-records) sort-val)
         formatted-records   (map #(assoc % :birth-date (format-date (:birth-date %))) sorted-records)]
-    (vec formatted-records)))
+    {:records (vec formatted-records)}))
 
 (defn post-record [{:keys [parameters]}]
   (let [new-line (-> parameters :body :new-line)

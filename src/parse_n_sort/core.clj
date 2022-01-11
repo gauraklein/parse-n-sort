@@ -3,9 +3,8 @@
    [parse-n-sort.cli-app :refer [print-output]]))
 
 (defn -main
-  "Application to parse and sort records"
+  "CLI entrypoint to parse and sort records takes a path and a desired format"
   [& args]
   (let [path (first args)
         output (second args)]
-    (println "Sorting " path)
     (print-output path output)))

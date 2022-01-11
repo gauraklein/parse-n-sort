@@ -1,6 +1,7 @@
 (ns parse-n-sort.server
   (:require
    [muuntaja.core :as m]
+   [org.httpkit.server :refer [run-server]]
    [reitit.ring :as ring]
    [reitit.ring.middleware.parameters :refer [parameters-middleware]]
    [reitit.ring.middleware.muuntaja :refer [format-negotiate-middleware
@@ -10,8 +11,8 @@
                                  coerce-request-middleware
                                  coerce-response-middleware]]
    [reitit.coercion.schema]
-   [schema.core :as s]
-   [parse-n-sort.routes :refer [routes]]))
+   [parse-n-sort.routes :refer [routes]])
+  (:gen-class))
 
 (def server
   (ring/ring-handler
@@ -31,3 +32,8 @@
     (ring/create-default-handler
      {:not-found (constantly {:status 404
                               :body "Route not found"})}))))
+
+(defn start-server []
+  (println "Starting API server on port 4000...")
+  (run-server server {:port 4000})
+  (println "Server successfully started!"))
