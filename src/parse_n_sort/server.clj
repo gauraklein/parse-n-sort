@@ -31,7 +31,7 @@
     (ring/redirect-trailing-slash-handler)
     (ring/create-default-handler
      {:not-found (constantly {:status 404
-                              :body "Route not found"})}))))
+                              :body "not found"})}))))
 
 (defn start-server []
   (println "Starting API server on port 4000...")

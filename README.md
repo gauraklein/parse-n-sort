@@ -42,3 +42,15 @@ Public License, v. 2.0 are satisfied: GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or (at your
 option) any later version, with the GNU Classpath Exception which is available
 at https://www.gnu.org/software/classpath/license.html.
+
+### TO IMPROVE
+- add validation to ensure that each record contains 5 values in parse file (especially for data coming into the post request)
+- upgrade the sorting function to take a direction as well
+- add a query param for sort direction to the get requests
+- add a get for the 'records' endpoint that takes a sort value as a query param
+
+--- TODO 
+- Add endpoint tests
+- update readme
+- postman collection of api-requests?
+- help command on the cli for arguments?

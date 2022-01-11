@@ -1,4 +1,6 @@
-(ns parse-n-sort.sort)
+(ns parse-n-sort.sort
+  (:require
+   [parse-n-sort.utils :refer [parse-birth-dates format-records]]))
 
 ;; TODO: add direction in here - separate out format code 
 (defn sort-records
@@ -9,17 +11,28 @@
     (= format  1)
     (do
       (println "Sorting by 'color' and 'last name' ascending")
-      (sort-by (juxt :color :last-name) records))
+      (->> records
+           (parse-birth-dates)
+           (sort-by (juxt :color :last-name))
+           (format-records)))
     (= format 2)
     (do
       (println "Sorting by 'birth date' ascending")
-      (sort-by :birth-date records))
+      (->> records
+           (parse-birth-dates)
+           (sort-by :birth-date)
+           (format-records)))
     (= format 3)
     (do
       (println "Sorting by 'last name' descending")
-      (sort-by :last-name #(compare %2 %1) records))
+      (->> records
+           (parse-birth-dates)
+           (sort-by :last-name #(compare %2 %1))
+           (format-records)))
     (keyword? format)
     (do
       (println (str "Sorting by " format " ascending"))
-    ;; could add (when "descedning" #(compare %2 %1)) 
-      (sort-by format records))))
+      (->> records
+           (parse-birth-dates)
+           (sort-by format)
+           (format-records)))))
