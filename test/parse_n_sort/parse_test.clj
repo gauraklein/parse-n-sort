@@ -8,8 +8,8 @@
 (def comma-str "last-name-1, first-name-1, email-1, color-1, 2000-01-01\nlast-name-2, first-name-2, email-2, color-2, 2002-10-20")
 (def space-str "last-name-1 first-name-1 email-1 color-1 2000-01-01\nlast-name-2 first-name-2 email-2 color-2 2002-10-20")
 
-(def correct-output [{:last-name "last-name-1", :first-name "first-name-1", :email "email-1", :color "color-1", :birth-date #inst "2000-01-01T06:00:00.000-00:00"}
-                     {:last-name "last-name-2", :first-name "first-name-2", :email "email-2", :color "color-2", :birth-date #inst "2002-10-20T05:00:00.000-00:00"}])
+(def correct-output [{:last-name "last-name-1", :first-name "first-name-1", :email "email-1", :color "color-1", :birth-date "2000-01-01"}
+                     {:last-name "last-name-2", :first-name "first-name-2", :email "email-2", :color "color-2", :birth-date "2002-10-20"}])
 
 (deftest parse-records-test
 
@@ -29,9 +29,9 @@
 
 ;; parse-args
 (def test-path "./test/parse_n_sort/test_input.txt")
-(def parsed-file [{:last-name "last-name-3", :first-name "first-name-3", :email "email-3", :color "color-2", :birth-date #inst "2013-05-11T05:00:00.000-00:00"}
-                  {:last-name "last-name-1", :first-name "first-name-1", :email "email-1", :color "color-1", :birth-date #inst "2002-10-20T05:00:00.000-00:00"}
-                  {:last-name "last-name-2", :first-name "first-name-2", :email "email-2", :color "color-2", :birth-date #inst "2000-01-01T06:00:00.000-00:00"}])
+(def parsed-file [{:last-name "last-name-3", :first-name "first-name-3", :email "email-3", :color "color-2", :birth-date "2013-05-11"}
+                  {:last-name "last-name-1", :first-name "first-name-1", :email "email-1", :color "color-1", :birth-date "2002-10-20"}
+                  {:last-name "last-name-2", :first-name "first-name-2", :email "email-2", :color "color-2", :birth-date "2000-01-01"}])
 
 (deftest parse-args-test
 

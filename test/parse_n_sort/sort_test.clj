@@ -3,9 +3,9 @@
    [clojure.test :refer :all]
    [parse-n-sort.sort :refer [sort-records]]))
 
-(def sort-input [{:last-name "last-name-3", :first-name "first-name-3", :email "email-3", :color "color-2", :birth-date "5/11/2013"}
-                 {:last-name "last-name-1", :first-name "first-name-1", :email "email-1", :color "color-1", :birth-date "1/1/2000"}
-                 {:last-name "last-name-2", :first-name "first-name-2", :email "email-2", :color "color-2", :birth-date "10/20/2002"}])
+(def sort-input [{:last-name "last-name-3", :first-name "first-name-3", :email "email-3", :color "color-2", :birth-date "2013-05-11"}
+                 {:last-name "last-name-1", :first-name "first-name-1", :email "email-1", :color "color-1", :birth-date "2000-01-01"}
+                 {:last-name "last-name-2", :first-name "first-name-2", :email "email-2", :color "color-2", :birth-date "2002-10-20"}])
 (def ascending-sort-output '({:last-name "last-name-1", :first-name "first-name-1", :email "email-1", :color "color-1", :birth-date "1/1/2000"}
                              {:last-name "last-name-2", :first-name "first-name-2", :email "email-2", :color "color-2", :birth-date "10/20/2002"}
                              {:last-name "last-name-3", :first-name "first-name-3", :email "email-3", :color "color-2", :birth-date "5/11/2013"}))
@@ -28,4 +28,5 @@
     (is (= descending-sort-output (sort-records sort-input 3)))))
 
 (comment
-  (run-tests))
+  (run-tests)
+  )
